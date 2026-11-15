@@ -29,29 +29,29 @@ Tadka Tales is a web-based application developed to explore the diverse food cul
 
 1. Clone this repository:
 
-   `git clone YOUR_GITHUB_REPOSITORY_LINK`
+   `git clone https://github.com/muskananjum315-wq/Tadka_tales`
 
-2. Open the project folder.
+3. Open the project folder.
 
-3. Create and activate a virtual environment.
+4. Create and activate a virtual environment.
 
-4. Install the required packages:
+5. Install the required packages:
 
    `pip install -r requirements.txt`
 
-5. Create a MySQL database.
+6. Create a MySQL database.
 
-6. Create a `.env` file using `.env.example` as a reference. Add your own database credentials and Django secret key.
+7. Create a `.env` file using `.env.example` as a reference. Add your own database credentials and Django secret key.
 
-7. Apply database migrations:
+8. Apply database migrations:
 
    `python manage.py migrate`
 
-8. Start the development server:
+9. Start the development server:
 
    `python manage.py runserver`
 
-9. Open `http://127.0.0.1:8000/` in your browser.
+10. Open `http://127.0.0.1:8000/` in your browser.
 
 ## 📌 Project Note
 
