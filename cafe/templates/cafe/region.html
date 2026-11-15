@@ -1,0 +1,144 @@
+{% extends 'cafe/base.html' %}
+
+{% load static %}
+
+{% block title %}
+regions - Tadka_tales
+{% endblock %}
+
+{% block extra_css %}
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="{% static 'css/footer.css' %}">
+<link rel="stylesheet" href="{% static 'css/region.css' %}">
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+    <main class="region-book-page">
+
+        <!-- REGION TABS -->
+
+        <div class="region-tabs">
+
+            <button class="region-tab active" data-region="north">
+                NORTH
+            </button>
+
+            <button class="region-tab" data-region="south">
+                SOUTH
+            </button>
+
+            <button class="region-tab" data-region="east">
+                EAST
+            </button>
+
+            <button class="region-tab" data-region="west">
+                WEST
+            </button>
+
+        </div>
+
+
+        <!-- NOTEBOOK -->
+
+        <section class="notebook">
+
+            <!-- LEFT ARROW -->
+
+            <button class="book-arrow left-arrow" onclick="previousDish()">
+                ←
+            </button>
+
+
+            <!-- LEFT PAGE -->
+
+            <div class="book-page left-page">
+
+                <div class="page-image">
+
+                    <img
+                        id="regionImage"
+                        src="{% static 'images/north icon.png' %}"
+                        alt="North Indian cuisine"
+                    >
+
+                </div>
+
+                <span class="page-region" id="pageRegion">
+                    NORTH INDIA
+                </span>
+
+            </div>
+
+
+            <!-- BOOK CENTER -->
+
+            <div class="book-spine"></div>
+
+
+            <!-- RIGHT PAGE -->
+
+            <div class="book-page right-page">
+
+                <div class="page-content">
+
+                    <h2 id="regionTitle">
+                        The Royal<br>
+                        <span>North</span>
+                    </h2>
+
+                    <div class="page-line"></div>
+
+                    <p id="regionStory">
+                        From royal kitchens and ancient trade routes
+                        to bustling streets and family tables, the food
+                        of North India carries generations of stories.
+                    </p>
+
+
+                    <div class="page-details">
+
+                        <div>
+
+                            <small>KNOWN FOR</small>
+
+                            <strong id="regionKnownFor">
+                                rich gravies, wheat-based flatbreads,
+                                <br>
+                                and heavy use of dairy products
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                    <button class="deep-dive" id="exploreRegion"
+                        data-url="{% url 'all_dishes' %}">
+                        EXPLORE NORTH<span>→</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT ARROW -->
+
+            <button class="book-arrow right-arrow" onclick="nextDish()">
+                →
+            </button>
+
+        </section>
+
+    </main>
+{% endblock %}    
+
+{% block extra_js %}
+    <script src="{% static 'css/region.js' %}"></script>
+{% endblock %}

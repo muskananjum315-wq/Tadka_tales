@@ -1,0 +1,95 @@
+*{
+    margin:0px;
+}    
+    
+nav {
+    background-color:rgb(1,30,1);
+    padding: 20px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:100vw;
+    z-index: 1000;
+    
+}
+nav div{
+    position: absolute;
+    right:50px;
+}
+nav h2 {
+    color: goldenrod;
+    font-family: 'Marcellus', serif;
+    padding-left: 100px;
+}
+
+nav a {
+    color: ivory;
+    font-size:14px;
+    font-family: 'Montserrat', sans-serif;
+    margin-left:30px;
+}
+
+nav a:hover{
+    color:goldenrod;
+}
+nav img {
+    width: 80px;
+    height: auto;
+    position:absolute;
+    left: 20px ;
+}
+
+.account-menu {
+    position: relative;
+    display: inline-block;
+    right:-19px;
+}
+
+.account-btn {
+    background: transparent !important;
+    border: none !important;
+    color: goldenrod !important;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.account-dropdown {
+    display: none;
+    position: absolute;
+    right: -15px;
+    top: 28px;
+    width: 150px;
+    background: rgb(1, 30, 1);
+    border: 1px solid goldenrod;
+    border-radius: 20px 20px 20px 20px ;
+    padding: 8px 0;
+    z-index: 1000;
+   
+}
+.account-dropdown.show {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.account-dropdown a,
+.account-dropdown span {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 15px;
+    color: ivory !important;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.account-dropdown a:hover {
+    color: goldenrod !important;
+}

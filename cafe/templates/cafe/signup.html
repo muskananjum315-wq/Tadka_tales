@@ -1,0 +1,99 @@
+{% load static %}
+
+<title>signup - Tadka_tales</title>
+
+{% block extra_css %}
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{% static 'css/signup.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+<section class="signup-page">
+
+    <div class="signup-wrapper">
+
+        <div class="signup-intro">
+
+            <span class="signup-label">
+                BEGIN YOUR JOURNEY
+            </span>
+
+            <h2>
+                MORE STORIES.<br>
+                <span>MORE FLAVOURS.</span>
+            </h2>
+
+            <div class="signup-divider"></div>
+
+            <p>
+                Create your Tadka Tales account and discover
+                the flavours, traditions and stories waiting
+                across India.
+            </p>
+
+            <span class="signup-tagline">
+                HAR BITE MEIN KAHANI
+            </span>
+
+        </div>
+
+
+        <div class="signup-box">
+
+            <h1>Join Tadka Tales</h1>
+
+            <p class="signup-subtitle">
+                Create your account and start exploring.
+            </p>
+
+            <form method="POST" class="signup-form">
+
+                {% csrf_token %}
+
+                <input
+                    type="text"
+                    name="username"
+                    placeholder="Username"
+                    required
+                >
+
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Email Address"
+                    required
+                >
+
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    required
+                >
+
+                <input
+                    type="password"
+                    name="confirm_password"
+                    placeholder="Confirm Password"
+                    required
+                >
+
+                <button type="submit">
+                    CREATE ACCOUNT
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
+

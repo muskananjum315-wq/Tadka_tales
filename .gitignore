@@ -1,0 +1,25 @@
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Private environment variables
+.env
+.env.*
+!.env.example
+
+# Local database files
+db.sqlite3
+/tadka_tales
+/tadka_tales database.sql
+
+# Log files
+*.log
+
+# Editor settings
+.vscode/

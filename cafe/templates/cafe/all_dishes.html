@@ -1,0 +1,135 @@
+{% extends 'cafe/base.html' %}
+{% load static %}
+
+{% block title %}
+all_dishes - Tadka_tales
+{% endblock %}
+
+{% block extra_css %}
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+ <link rel="stylesheet" href="{% static 'css/all_dishes.css' %}">
+ <link rel="stylesheet" href="{% static 'css/base.css' %}">
+ <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+{% endblock %}
+
+{% block content %}
+    <!-- PAGE INTRO -->
+
+    <section class="dish-intro">
+
+        <h3>ALL DISHES</h3>
+
+        <div class="gold-line"></div>
+
+    </section>
+
+
+    <!-- REGION FILTER -->
+
+    <section class="dish-explorer">
+
+        <div class="region-buttons">
+
+            <button class="filter-btn active" data-region="all">
+                ALL
+            </button>
+
+            <button class="filter-btn" data-region="north">
+                NORTH
+            </button>
+
+            <button class="filter-btn" data-region="south">
+                SOUTH
+            </button>
+
+            <button class="filter-btn" data-region="east">
+                EAST
+            </button>
+
+            <button class="filter-btn" data-region="west">
+                WEST
+            </button>
+
+        </div>
+
+
+        <!-- SEARCH -->
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="dishSearch"
+                placeholder="Search a dish..."
+            >
+
+        </div>
+
+{% for dish in dishes %}
+
+<article class="dish-row"
+    data-region="{% if 'North India' in dish.region %}north{% elif 'South India' in dish.region %}south{% elif 'East India' in dish.region %}east{% elif 'West India' in dish.region %}west{% endif %}"
+    onclick="window.location.href='{% url 'dish_detail' dish.slug %}'">
+
+    <span class="dish-number">
+        {{ forloop.counter|stringformat:"02d" }}
+    </span>
+
+    <!-- <div class="dish-image">
+        <img src="{% static 'dishes/' %}{{ dish.name|lower }}.png"
+             alt="{{ dish.name }}">
+    </div> -->
+    <!-- <div class="dish-image">
+
+    {% if dish.image %}
+        <img src="{{ dish.image.url }}" alt="{{ dish.name }}">
+    {% else %}
+        <img src="{% static 'dishes/' %}{{ dish.name|lower }}.png"
+             alt="{{ dish.name }}">
+    {% endif %}
+
+</div> -->
+
+<div class="dish-image" style="position: relative;">
+
+    {% if dish.image %}
+        <img src="{{ dish.image.url }}" alt="{{ dish.name }}">
+    {% else %}
+        <img src="{% static 'dishes/' %}{{ dish.name|lower }}.png"
+             alt="{{ dish.name }}">
+    {% endif %}
+
+    <button
+        type="button"
+        class="favourite-btn {% if dish.id in favourite_ids %}is-favourite{% endif %}"
+        data-dish-id="{{ dish.id }}"
+        aria-label="Add {{ dish.name }} to favourites"
+        onclick="event.stopPropagation(); toggleFavourite(this);">
+        ♡
+    </button>
+
+</div>
+
+
+
+    <div class="dish-name">
+        <h2>{{ dish.name }}</h2>
+        <p>{{ dish.region }}</p>
+    </div>
+
+</article>
+
+{% endfor %}
+    
+
+</section>
+{% endblock %}
+
+{% block extra_js %}
+
+    <script src="{% static 'css/all_dishes.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,595 @@
+{% extends 'cafe/base.html' %}
+{% load static %}
+
+{% block title %}{{ restaurant.name }} | Tadka Tales{% endblock %}
+
+{% block extra_css %}
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Marcellus&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{% static 'css/footer.css' %}">
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+<style>
+/* ===== MAIN PAGE ===== */
+
+.restaurant-profile {
+    min-height: 100vh;
+    padding: 55px 7% 85px;
+    background: rgb(1, 17, 1);
+    color: ivory;
+    font-family: 'Lora', serif;
+}
+
+.restaurant-profile * {
+    box-sizing: border-box;
+}
+
+.restaurant-section {
+    max-width: 1240px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ===== RESTAURANT HERO ===== */
+
+.restaurant-hero {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 55px;
+    align-items: center;
+}
+
+.restaurant-photo-wrap {
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.restaurant-photo {
+    display: block;
+    width: 100%;
+    height: 430px;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.restaurant-photo-wrap:hover .restaurant-photo {
+    transform: scale(1.035);
+}
+
+.restaurant-placeholder {
+    height: 430px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(1, 30, 1);
+    border: 1px solid rgba(255, 255, 240, 0.12);
+    color: ivory;
+    font-family: 'Marcellus', serif;
+    font-size: 27px;
+}
+
+.restaurant-eyebrow {
+    margin-bottom: 15px;
+    color: #c4b77b;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.restaurant-info h1 {
+    margin: 0 0 15px;
+    font-family: 'Marcellus', serif;
+    font-size: clamp(34px, 4vw, 51px);
+    font-weight: 400;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+}
+
+.restaurant-rating {
+    margin-bottom: 23px;
+    color: #d6c786;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+}
+
+.restaurant-description {
+    margin: 0 0 25px;
+    color: #d1d6cd;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.restaurant-divider {
+    width: 55px;
+    height: 1px;
+    margin: 22px 0;
+    background: #9d925e;
+}
+
+/* ===== RESTAURANT DETAILS ===== */
+
+.restaurant-meta {
+    display: grid;
+    gap: 15px;
+}
+
+.restaurant-meta p {
+    margin: 0;
+    color: #d7dcd3;
+    font-size: 13px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+.restaurant-meta strong {
+    color: ivory;
+    font-weight: 600;
+}
+
+/* ===== COMPACT BUTTONS ===== */
+
+.restaurant-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 11px;
+    margin-top: 27px;
+}
+
+.restaurant-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 35px;
+    padding: 9px 15px;
+    border: 1px solid goldenrod;
+    border-radius: 2px;
+    background: #8f6b0b;
+    color: rgb(1, 17, 1);
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    transition: background 0.25s ease,
+                color 0.25s ease,
+                border-color 0.25s ease;
+}
+
+.restaurant-btn:hover {
+    background: rgb(1, 17, 1);
+    color:  #8f6b0b ;
+    border-color:  #8f6b0b;
+}
+
+/* ===== SECTION HEADINGS ===== */
+
+.restaurant-section-heading {
+    margin-bottom: 30px;
+}
+
+.restaurant-section-heading .restaurant-eyebrow {
+    margin-bottom: 10px;
+}
+
+.restaurant-section-heading h2 {
+    margin: 0;
+    color: ivory;
+    font-family: 'Marcellus', serif;
+    font-size: clamp(27px, 3vw, 37px);
+    font-weight: 400;
+    line-height: 1.3;
+}
+
+.restaurant-section-heading p {
+    margin: 12px 0 0;
+    color: #bfc7bb;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* ===== INTERIOR GALLERY ===== */
+
+.restaurant-gallery {
+    margin-top: 85px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    min-width: 0;
+    margin: 0;
+    overflow: hidden;
+    background: rgb(1, 30, 1);
+}
+
+.gallery-item img {
+    display: block;
+    width: 100%;
+    height: 245px;
+    object-fit: cover;
+    transition: transform 0.55s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-item figcaption {
+    padding: 12px 14px;
+    border-bottom: 1px solid rgba(255, 255, 240, 0.12);
+    color: #e1e3d8;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.4px;
+}
+
+/* ===== MENU SECTION ===== */
+
+.restaurant-menu {
+    margin-top: 85px;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.menu-item {
+    min-width: 0;
+    overflow: hidden;
+    background: rgb(1, 30, 1);
+    border: 1px solid rgba(255, 255, 240, 0.09);
+    transition: transform 0.3s ease,
+                border-color 0.3s ease;
+}
+
+.menu-item:hover {
+    transform: translateY(-4px);
+    border-color: goldenrod;
+}
+
+.menu-item > img {
+    display: block;
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.menu-item:hover > img {
+    transform: scale(1.025);
+}
+
+.menu-item-info {
+    padding: 21px 19px 22px;
+}
+
+.menu-item h3 {
+    margin: 0 0 9px;
+    color: ivory;
+    font-family: 'Marcellus', serif;
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+.menu-item p {
+    margin: 0 0 17px;
+    color: #c2c9bd;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.empty-menu {
+    padding: 25px 0;
+    color: #c2c9bd;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+@media (max-width: 950px) {
+    .restaurant-profile {
+        padding: 45px 5% 65px;
+    }
+
+    .restaurant-hero {
+        gap: 32px;
+    }
+
+    .restaurant-photo,
+    .restaurant-placeholder {
+        height: 360px;
+    }
+
+    .gallery-grid,
+    .menu-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 650px) {
+    .restaurant-profile {
+        padding: 30px 5% 55px;
+    }
+
+    .restaurant-hero {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .restaurant-photo,
+    .restaurant-placeholder {
+        height: 280px;
+    }
+
+    .restaurant-info h1 {
+        font-size: 36px;
+    }
+
+    .restaurant-gallery,
+    .restaurant-menu {
+        margin-top: 60px;
+    }
+
+    .gallery-grid,
+    .menu-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .gallery-item img {
+        height: 250px;
+    }
+
+    .menu-item > img {
+        height: 230px;
+    }
+
+    .restaurant-section-heading h2 {
+        font-size: 29px;
+    }
+}
+</style>
+
+{% endblock %}
+
+
+{% block content %}
+
+<main class="restaurant-profile">
+
+    <!-- RESTAURANT INTRODUCTION -->
+
+    <section class="restaurant-hero restaurant-section">
+
+        <div class="restaurant-photo-wrap">
+
+            {% if restaurant.image %}
+                <img
+                    class="restaurant-photo"
+                    src="{{ restaurant.image.url }}"
+                    alt="{{ restaurant.name }}"
+                >
+            {% else %}
+                <div class="restaurant-placeholder">
+                    Tadka Tales
+                </div>
+            {% endif %}
+
+        </div>
+
+
+        <div class="restaurant-info">
+
+            <div class="restaurant-eyebrow">
+                A Tadka Tales Partner
+            </div>
+
+            <h1>{{ restaurant.name }}</h1>
+
+            <div class="restaurant-rating">
+                ★ &nbsp; {{ restaurant.rating }} / 5
+            </div>
+
+            {% if restaurant.description %}
+                <p class="restaurant-description">
+                    {{ restaurant.description }}
+                </p>
+            {% endif %}
+
+            <div class="restaurant-divider"></div>
+
+            <div class="restaurant-meta">
+
+                <p>
+                    <strong>Location</strong><br>
+                    {{ restaurant.address }}
+                </p>
+
+                <p>
+                    <strong>Opening Hours</strong><br>
+                    {{ restaurant.opening_time|time:"g:i A" }}
+                    –
+                    {{ restaurant.closing_time|time:"g:i A" }}
+                </p>
+
+                <p>
+                    <strong>Cuisine Region</strong><br>
+                    {{ restaurant.region }}
+                </p>
+
+                <p>
+                    <strong>Phone</strong><br>
+                    {{ restaurant.phone }}
+                </p>
+
+                <p>
+                    <strong>Email</strong><br>
+                    {{ restaurant.email }}
+                </p>
+
+            </div>
+
+            <div class="restaurant-actions">
+
+                <a
+                    class="restaurant-btn"
+                    href="https://www.google.com/maps/search/?api=1&amp;query={{ restaurant.address|urlencode }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Get Directions ↗
+                </a>
+
+                <a
+                    class="restaurant-btn"
+                    href="tel:{{ restaurant.phone }}"
+                >
+                    Contact Restaurant
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- RESTAURANT INTERIOR GALLERY -->
+
+    {% with interiors=restaurant.interior_images.all %}
+
+        {% if interiors %}
+
+            <section class="restaurant-gallery restaurant-section">
+
+                <div class="restaurant-section-heading">
+
+                    <div class="restaurant-eyebrow">
+                        Step Inside
+                    </div>
+
+                    <h2>Interior &amp; Ambience</h2>
+
+                    <p>
+                        Take a look at the spaces, atmosphere and
+                        dining experience at {{ restaurant.name }}.
+                    </p>
+
+                </div>
+
+                <div class="gallery-grid">
+
+                    {% for interior in interiors %}
+
+                        <figure class="gallery-item">
+
+                            <img
+                                src="{{ interior.image.url }}"
+                                alt="{{ interior.caption|default:restaurant.name }}"
+                                loading="lazy"
+                            >
+
+                        </figure>
+
+                    {% endfor %}
+
+                </div>
+
+            </section>
+
+        {% endif %}
+
+    {% endwith %}
+
+
+    <!-- RESTAURANT MENU -->
+
+    <section class="restaurant-menu restaurant-section">
+
+        <div class="restaurant-section-heading">
+
+            <div class="restaurant-eyebrow">
+                Discover The Flavours
+            </div>
+
+            <h2>Explore Our Menu</h2>
+
+            <p>
+                Discover the dishes associated with this restaurant
+                through Tadka Tales.
+            </p>
+
+        </div>
+
+        {% with dishes=restaurant.dishes.all %}
+
+            {% if dishes %}
+
+                <div class="menu-grid">
+
+                    {% for dish in dishes %}
+
+                        <article class="menu-item">
+
+                            {% if dish.image %}
+
+                                <img
+                                    src="{{ dish.image.url }}"
+                                    alt="{{ dish.name }}"
+                                    loading="lazy"
+                                >
+                              
+                            {% endif %}
+
+                            <div class="menu-item-info">
+
+                                <h3>{{ dish.name }}</h3>
+
+                                <p>{{ dish.origin }}</p>
+
+                                <a
+                                    class="restaurant-btn"
+                                    href="{% url 'dish_detail' dish_name=dish.slug %}"
+                                >
+                                    view details &nbsp; →
+                                </a>
+
+                            </div>
+
+                        </article>
+
+                    {% endfor %}
+
+                </div>
+
+            {% else %}
+
+                <p class="empty-menu">
+                    This restaurant's menu is being updated.
+                    Please check back soon!
+                </p>
+
+            {% endif %}
+
+        {% endwith %}
+
+    </section>
+
+</main>
+
+{% endblock %}

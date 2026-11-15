@@ -1,0 +1,719 @@
+{% extends 'cafe/base.html' %}
+
+{% load static %}
+
+{% block title %}
+Tadka Tales
+{% endblock %}
+
+{% block extra_css %}
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{% static 'css/hero.css' %}">
+<link rel="stylesheet" href="{% static 'css/story.css' %}">
+<link rel="stylesheet" href="{% static 'css/footer.css' %}">
+<link rel="stylesheet" href="{% static 'css/region.css' %}">
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+<main>
+<section class="hero">
+           <video id="hero1" autoplay muted loop playsinline>
+                <source src="{% static 'videos/momos.mp4' %}" type="video/mp4">
+           </video>
+           <video id="hero2" autoplay muted loop playsinline>
+                <source src="{% static 'videos/butterchicken.mp4' %}" type="video/mp4">
+           </video>
+           <video id="hero3" autoplay muted loop playsinline>
+                <source src="{% static 'videos/dosa.mp4' %}" type="video/mp4">
+           </video>
+           <video id="hero4" autoplay muted loop playsinline>
+                <source src="{% static 'videos/sabudana.mp4' %}" type="video/mp4">
+           </video>
+
+<div class="hero-content">
+
+    <div class="welcome-text">
+        WELCOME TO ❤️
+    </div>
+
+    <div class="title-wrap">
+        <span class="title-tadka">Tadka</span>
+        <span class="title-tales">Tales</span>
+
+        <div class="gold-orbit"></div>
+    </div>
+
+    <p>
+        Discover the flavours, stories and traditions of India<br>
+        Where every dish tells a story.
+    </p>
+
+    <a href ="{% url 'menu' %}"><button>Explore Our Menu <span>→</span></button></a>
+
+</div>
+
+<div class="scroll-indicator">
+    <span>↓</span>
+    <small>SCROLL TO BEGIN YOUR JOURNEY</small>
+</div>
+            
+           
+ </section>
+</main>
+
+    <section class="story-section">
+    
+    <div class="story-text">
+        <div class="story-label">
+        <img src="{% static 'images/divider1.png' %}" alt="dividerbox">
+        <span>THE TASTE OF INDIA</span>
+        </div>
+
+        <h2>
+            MORE THAN<br>
+            JUST 
+        <span>FOOD.</span>
+        </h2>
+
+        <p class="story-description">
+            Every dish carries a place, a memory,
+            and a story waiting to be discovered.
+        </p>
+        
+    </div>
+    
+    <div class="story-image">
+        <img src="{% static 'images/2pageimg.png' %}" alt="Indian cuisine">
+    </div>    
+
+</section>
+
+<!------------------------------------------>
+
+<main class="culture-section">
+    <div class="lantern">
+        <img src="{% static 'images/lantern.png' %}" alt="lantern">
+    </div>
+    
+    <!-- LEFT CONTENT -->
+    <div class="culture-intro">
+
+        <p class="section-tag">
+            A JOURNEY THROUGH FLAVOURS
+        </p>
+
+        <h1>
+            MANY CULTURES.<br>
+            <span>ONE THALI.</span>
+        </h1>
+
+        <p class="intro-text">
+            From royal feasts of the North to the coastal spices of the
+            South, every region brings its own story to the table.
+        </p>
+
+        <a href="{% url 'all_dishes' %}" class="explore-btn">
+            EXPLORE ALL DISHES
+            <span>↓</span>
+        </a>
+
+    </div>
+
+
+    <!-- CENTER THALI -->
+<div class="thali-area">
+
+        <!-- Decorative orbit -->
+        <div class="orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+
+        <!-- Main Thali -->
+        <div class="thali-wrapper">
+
+            <img 
+                src="{% static 'images/thali.png' %}"
+                alt="Traditional Indian Thali"
+                class="main-thali"
+            >
+
+        </div>
+
+<div class="culture-card north-card" data-region="north">
+
+    <img
+        src="{% static 'images/north icon.png' %}"
+        alt="North India"
+        class="region-icon"
+    >
+
+    <div class="card-content">
+
+        <span class="culture-title">NORTH</span>
+
+        <p>
+            Deep, layered flavors that satisfy
+        </p>
+
+        <button class="dive-btn">
+            DIVE DEEP IN
+            <span>→</span>
+        </button>
+
+    </div>
+
+</div>
+
+<div class="culture-card west-card" data-region="west">
+
+    <div class="card-glow"></div>
+
+    <img
+        src="{% static 'images/west icon.png' %}"
+        alt="West India"
+        class="region-icon"
+    >
+
+    <div class="card-content">
+
+        <span class="culture-title">WEST</span>
+
+        <p>
+            Where tradition meets modern flavor.
+        </p>
+
+        <button class="dive-btn">
+            DIVE DEEP IN
+            <span>→</span>
+        </button>
+
+    </div>
+
+</div>
+
+<div class="culture-card east-card" data-region="east">
+
+    <div class="card-glow"></div>
+
+    <img
+        src="{% static 'images/east icon.png' %}"
+        alt="East India"
+        class="region-icon"
+    >
+
+    <div class="card-content">
+
+        <span class="culture-title">EAST</span>
+
+        <p>
+            Balance, harmony, and unforgettable flavor.
+        </p>
+
+        <button class="dive-btn">
+            DIVE DEEP IN
+            <span>→</span>
+        </button>
+
+    </div>
+
+</div>
+
+<div class="culture-card south-card" data-region="south">
+
+    <div class="card-glow"></div>
+
+    <img
+        src="{% static 'images/south icon.png' %}"
+        alt="South India"
+        class="region-icon"
+    >
+
+    <div class="card-content">
+
+        <span class="culture-title">SOUTH</span>
+
+        <p>
+            Experience the ultimate comfort food.
+        </p>
+
+        <button class="dive-btn">
+            DIVE DEEP IN
+            <span>→</span>
+        </button>
+
+    </div>
+
+</div>
+ 
+</div>
+<!-- =========================
+     JOURNEY FLOW
+========================= -->
+
+<section class="journey-flow">
+
+    <div class="journey-line"></div>
+    
+    <div class="journey-items">
+
+        <!-- HOME -->
+        <a href="{% url 'home' %}" class="journey-item">
+
+            <div class="journey-icon">
+                ⌂
+            </div>
+
+            <span class="journey-name">HOME</span>
+
+            <small>
+                Welcome &<br>
+                Introduction
+            </small>
+
+        </a>
+
+
+        <div class="journey-arrow">→</div>
+
+
+        <!-- TASTE OF INDIA -->
+        <a href="{% url 'menu' %}" class="journey-item">
+
+            <div class="journey-icon">
+                ▥
+            </div>
+
+            <span class="journey-name">MENU</span>
+
+            <small>
+                Explore 4 Regions
+            </small>
+
+        </a>
+
+
+        <div class="journey-arrow">→</div>
+
+
+        <!-- REGION -->
+        <a href="{% url 'region' %}" class="journey-item">
+
+            <div class="journey-icon">
+                ◈
+            </div>
+
+            <span class="journey-name">REGION</span>
+
+            <small>
+                Culture, People &<br>
+                Signature Dishes
+            </small>
+
+        </a>
+
+        <div class="journey-arrow">→</div>
+
+    
+        <!-- ABOUT -->
+        <a href="{% url 'about' %}" class="journey-item">
+
+            <div class="journey-icon">
+                ♧
+            </div>
+
+            <span class="journey-name">ABOUT</span>
+
+            <small>
+                Our Mission &<br>
+                Our People
+            </small>
+
+        </a>
+
+
+        <div class="journey-arrow">→</div>
+
+
+        <!-- CONTACT -->
+        <a href="{% url  'contact' %}" class="journey-item">
+
+            <div class="journey-icon">
+                ✉
+            </div>
+
+            <span class="journey-name">CONTACT</span>
+
+            <small>
+                Connect With<br>
+                Us
+            </small>
+
+        </a>
+
+    </div>
+
+</section>
+
+</main>
+
+<!-------------------------------------------------------------------->
+  <main class="region-book-page">
+
+        <!-- REGION TABS -->
+
+        <div class="region-tabs">
+
+            <button class="region-tab active" data-region="north">
+                NORTH
+            </button>
+
+            <button class="region-tab" data-region="south">
+                SOUTH
+            </button>
+
+            <button class="region-tab" data-region="east">
+                EAST
+            </button>
+
+            <button class="region-tab" data-region="west">
+                WEST
+            </button>
+
+        </div>
+
+
+        <!-- NOTEBOOK -->
+
+        <section class="notebook">
+
+            <!-- LEFT ARROW -->
+
+            <button class="book-arrow left-arrow" onclick="previousDish()">
+                ←
+            </button>
+
+
+            <!-- LEFT PAGE -->
+
+            <div class="book-page left-page">
+
+                <div class="page-image">
+
+                    <img
+                        id="regionImage"
+                        src="{% static 'images/north icon.png' %}"
+                        alt="North Indian cuisine"
+                    >
+
+                </div>
+
+                <span class="page-region" id="pageRegion">
+                    NORTH INDIA
+                </span>
+
+            </div>
+
+
+            <!-- BOOK CENTER -->
+
+            <div class="book-spine"></div>
+
+
+            <!-- RIGHT PAGE -->
+
+            <div class="book-page right-page">
+
+                <div class="page-content">
+
+                    <h2 id="regionTitle">
+                        The Royal<br>
+                        <span>North</span>
+                    </h2>
+
+                    <div class="page-line"></div>
+
+                    <p id="regionStory">
+                        From royal kitchens and ancient trade routes
+                        to bustling streets and family tables, the food
+                        of North India carries generations of stories.
+                    </p>
+
+
+                    <div class="page-details">
+
+                        <div>
+
+                            <small>KNOWN FOR</small>
+
+                            <strong id="regionKnownFor">
+                                rich gravies, wheat-based flatbreads,
+                                <br>
+                                and heavy use of dairy products
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                    <button class="deep-dive" id="exploreRegion"
+                        data-url="{% url 'all_dishes' %}">
+                        EXPLORE NORTH<span>→</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT ARROW -->
+
+            <button class="book-arrow right-arrow" onclick="nextDish()">
+                →
+            </button>
+
+        </section>
+
+    </main>
+<!----------------------------------------->
+<main class="contact-page">
+
+    <!-- VERTICAL TAGLINE -->
+
+    <div class="vertical-tag">
+        <span>✦</span>
+        HAR BITE MEIN KAHANI
+        <span>✦</span>
+    </div>
+
+
+    <!-- MAIN INTRO -->
+
+    <section class="contact-intro">
+
+        <span>LET'S CONNECT</span>
+
+        <div class="intro-divider">
+            <span></span>
+            <b>✦</b>
+            <span></span>
+        </div>
+        <h1>
+    Have a question, want to partner
+    with us, or simply want to talk food?
+</h1>
+
+    </section>
+
+
+    <!-- CONTACT CONTENT -->
+
+    <section class="contact-content">
+
+
+        <!-- LEFT SIDE -->
+
+        <div class="contact-info">
+
+            <h2>GET IN TOUCH</h2>
+
+
+            <div class="info-item">
+
+                <div class="info-icon">♧</div>
+
+                <div>
+                    <strong>Customer Support</strong>
+
+                    <p>
+                        Questions about dishes, orders or your experience?
+                        We're here to help!
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="info-item">
+
+                <div class="info-icon">✉</div>
+
+                <div>
+                    <strong>Email Us</strong>
+
+                    <p>
+                        support@tadkatales.in
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="info-item">
+
+                <div class="info-icon">☎</div>
+
+                <div>
+                    <strong>Call Us</strong>
+
+                    <p>
+                        +91 6362806159                        <br>
+                        <small>(Mon – Sun, 9AM – 10PM)</small>
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="info-divider"></div>
+
+
+            <h2>PARTNER WITH TADKA TALES</h2>
+
+            <div class="partner-info">
+
+                <div class="info-icon">♢</div>
+
+                <div>
+                    <strong>Interested in partnering with us?</strong>
+
+                    <p>
+                        Let's bring your restaurant to more food lovers.
+                    </p>
+
+                    <span>partners@tadkatales.in</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CENTER CARDS -->
+
+        <div class="contact-cards">
+
+
+            <div class="contact-card">
+
+                <div class="card-icon">♧</div>
+
+                <h3>CUSTOMER</h3>
+
+                <p>
+                    Questions about dishes,
+                    <br>
+                    orders or your experience?
+                </p>
+
+                <a href="#message" class="scroll-message">
+                    WE'RE HERE FOR YOU
+                    <span>→</span>
+                </a>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <div class="card-icon">⩎</div>
+
+                <h3>RESTAURANT PARTNER</h3>
+
+                <p>
+                    Interested in partnering
+                    <br>
+                    with Tadka Tales?
+                </p>
+
+                <a href="#message" class="scroll-message">
+                    LET'S CONNECT
+                    <span>→</span>
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- RIGHT FORM -->
+
+        <div class="contact-form" id="message">
+
+            <h2>SEND US A MESSAGE</h2>
+
+           {% if success %}
+              <p class="success-message">{{ success }}</p>
+            {% endif %}
+
+
+            <form method="post" action="{% url 'contact' %}">
+             {% csrf_token %}
+
+                <div class="form-row">
+
+                   <input
+                      type="text"
+                      name="name"
+                      placeholder="Your Name *"
+                      required
+                    >
+
+                    <input
+                     type="email"
+                     name="email"
+                     placeholder="Your Email *"
+                     required
+                    >
+
+                </div>
+                  <select name="subject" required>
+    <option value="">Select Subject</option>
+    <option value="Customer Support">Customer Support</option>
+    <option value="Feedback">Feedback</option>
+    <option value="Restaurant Partnership">Restaurant Partnership</option>
+    <option value="Other">Other</option>
+                </select>
+
+
+                <textarea
+                    name="message"
+                    placeholder="Your Message *"
+                    required
+                ></textarea>
+
+
+                <button type="submit">
+                    SEND MESSAGE →
+                </button>
+
+        
+            </form>
+
+        </div>
+
+    </section>
+
+</main>
+
+<script>
+document.querySelectorAll(".dive-btn").forEach(button => {
+    button.addEventListener("click", function(e) {
+        e.stopPropagation();
+
+        const card = this.closest(".culture-card");
+        const region = card.dataset.region;
+
+        window.location.href = `/region/#${region}`;
+    });
+});
+</script>
+
+ <script src="{% static 'css/region.js' %}"></script>
+{% endblock %}

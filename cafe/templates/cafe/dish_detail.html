@@ -1,0 +1,188 @@
+{% extends 'cafe/base.html' %}
+{% load static %}
+
+{% block title %}
+dish_detail - Tadka_tales
+{% endblock %}
+
+{% block extra_css %}
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+ <link rel="stylesheet" href="{% static 'css/dish_detail.css' %}">
+ <link rel="stylesheet" href="{% static 'css/base.css' %}">
+ <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <!-- MAIN DISH SECTION -->
+
+    <main class="dish-detail">
+
+        <!-- IMAGE -->
+
+        <section class="dish-image">
+
+            {% if dish.image %}
+    <img src="{{ dish.image.url }}" alt="{{ dish.name }}">
+{% else %}
+    <img src="{% static 'dishes/' %}{{ dish.name|lower }}.png" alt="{{ dish.name }}">
+{% endif %}
+
+             <div class="dish-navigation">
+    <a href="#" id="prevDish">←</a>
+    <a href="#" id="nextDish">→</a>
+</div>
+
+        </section>
+      <div class="bg">
+    {% if dish.region_ref and dish.region_ref.background_image %}
+        <img src="{{ dish.region_ref.background_image.url }}" alt="">
+    {% endif %}
+       </div>
+ 
+        <!-- INFORMATION -->
+<section class="dish-info">
+
+    <span class="dish-region">
+        {{ dish.region }}
+    </span>
+
+    <h1>{{ dish.name }}</h1>
+
+    <div class="gold-line"></div>
+
+    <p class="dish-story">
+        {{ dish.story }}
+    </p>
+
+    <div class="dish-details">
+
+        <div class="detail-item">
+            <small>ORIGIN</small>
+            <strong>{{ dish.origin }}</strong>
+        </div>
+
+        <div class="detail-item">
+            <small>MAIN INGREDIENTS</small>
+            <strong>{{ dish.ingredients }}</strong>
+        </div>
+
+        <div class="detail-item">
+            <small>KNOWN FOR</small>
+            <strong>{{ dish.known_for }}</strong>
+        </div>
+
+    </div>
+
+    <div class="dish-actions">
+
+        <!-- <button onclick="window.location.href='{% url 'restaurants' %}'">
+            ORDER / FIND NEARBY
+        </button> -->
+        <a href="{% url 'restaurants' %}?region={{ dish.region }}" class="order-btn">
+    FIND NEARBY
+</a>
+        <a href="{% url 'all_dishes' %}">
+            ← BACK TO DISHES
+        </a>
+
+    </div>
+
+</section>
+
+    </main>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+const dishes = [
+    "Dal-Makhani",
+    "Palak-Paneer",
+    "Chole-Bhature",
+    "Rajma-Chawal",
+    "Sarson-Ka-Saag-Makki-Ki-Roti",
+    "Dal-Baati-Churma",
+    "Aloo-Paratha",
+    "Pani-Puri",
+    "Papdi-Chaat",
+    "Bhel-Puri",
+    "Meethi-Chutney",
+    "Green-Chutney",
+    "Dahi",
+    "Sev",
+    "Gulab-Jamun",
+    "Jalebi",
+    "Rabri",
+
+    "Masala-Dosa",
+    "Idli-Sambar",
+    "Bisi-Bele-Bath",
+    "Curd-Rice",
+    "Pongal",
+    "Rava-Upma",
+    "Medu-Vada",
+    "Bonda",
+    "Buns",
+    "Chutney",
+    "Murukku",
+    "Mixture",
+    "Payasam",
+    "Mysore-Pak",
+    "Rasam",
+
+    "Litti-Chokha",
+    "Machher-Jhol",
+    "Pakhala-Bhata",
+    "Khar",
+    "Momos",
+    "Rasgulla",
+    "Aloo-Chokha",
+    "Chhena-Malpua",
+    "Chicken-Poda",
+    "Rasmalai",
+    "Mishti-Doi",
+    "Sandesh",
+    "Thekua",
+
+    "Vada-Pav",
+    "Pav-Bhaji",
+    "Dhokla",
+    "Thepla",
+    "Aam-Ras",
+    "Ackee-and-Saltfish",
+    "Brown-Stew-Chicken",
+    "Sabudana-Vada",
+    "Fafda",
+    "Creamy-Basundi",
+    "Shrikhand",
+    "Puran-Poli",
+    "Modak"
+];
+
+const currentDish = window.location.pathname
+    .split("/")
+    .filter(Boolean)
+    .pop();
+
+const currentIndex = dishes.indexOf(currentDish);
+
+const previousButton = document.getElementById("prevDish");
+const nextButton = document.getElementById("nextDish");
+
+if (currentIndex > 0) {
+    previousButton.href = "/dish/" + dishes[currentIndex - 1] + "/";
+} else {
+    previousButton.style.visibility = "hidden";
+}
+
+if (currentIndex < dishes.length - 1) {
+    nextButton.href = "/dish/" + dishes[currentIndex + 1] + "/";
+} else {
+    nextButton.style.visibility = "hidden";
+}
+</script>    
+
+{% endblock %}

@@ -1,0 +1,251 @@
+
+
+/* ABOUT STORIES */
+
+.about-stories {
+    background: rgb(1, 17, 1);
+    padding: 100px 8%;
+}
+
+.story-heading {
+    margin-bottom: 55px;
+}
+
+.story-heading span {
+    color: goldenrod;
+    font-size: 11px;
+    letter-spacing: 3px;
+    display: block;
+    text-align: center;
+}
+
+.story-heading h2 {
+    margin-top: 15px;
+
+    color: ivory;
+    text-align: center;
+    font-family: 'Marcellus', serif;
+    font-size: 48px;
+    font-weight: normal;
+}
+
+
+/* CARD */
+
+.story-card {
+    background: ivory;
+    margin-bottom: 18px;
+    overflow: hidden;
+}
+
+.dark-card {
+    background: rgb(1, 30, 1);
+}
+
+
+/* HEADER */
+
+.story-header {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 80px 1fr 50px;
+
+    align-items: center;
+
+    padding: 28px 35px;
+
+    background: transparent;
+
+    border: none;
+
+    color: inherit;
+
+    text-align: left;
+
+    cursor: pointer;
+}
+
+.story-number {
+    color: goldenrod;
+    font-family: 'Marcellus', serif;
+    font-size: 20px;
+}
+
+.story-title span {
+    display: block;
+
+    color: goldenrod;
+
+    font-size: 9px;
+    letter-spacing: 2px;
+
+    margin-bottom: 8px;
+}
+
+.story-title h3 {
+    font-family: 'Marcellus', serif;
+
+    font-size: 27px;
+    font-weight: normal;
+
+    color: rgb(1, 30, 1);
+}
+
+.dark-card .story-title h3 {
+    color: ivory;
+}
+
+/* OPEN CONTENT */
+
+.story-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.8s ease;
+
+}
+
+.story-text {
+    padding: 0 165px 35px;
+
+    max-width: 850px;
+}
+
+.story-text p {
+    font-family: 'Lora', serif;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    color: #4e5a51;
+
+    margin-bottom: 15px;
+}
+
+.dark-card .story-text p {
+    color: #d8ccb5;
+}
+
+
+/* ACTIVE */
+
+.story-card.active .story-content {
+    max-height: 600px;
+}
+
+.story-card.active .story-icon {
+    transform: rotate(45deg);
+}
+
+/* WHY TADKA TALES */
+
+.why-points {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 0;
+
+    margin-top: 25px;
+
+    border-top: 1px solid rgba(212, 175, 55, 0.35);
+}
+
+.why-points div {
+    padding: 22px 20px;
+
+    border-bottom: 1px solid rgba(212, 175, 55, 0.35);
+}
+
+.why-points div:nth-child(odd) {
+    border-right: 1px solid rgba(212, 175, 55, 0.35);
+}
+
+.why-points strong {
+    display: block;
+
+    color: goldenrod;
+
+    font-size: 10px;
+    letter-spacing: 2px;
+
+    margin-bottom: 8px;
+}
+
+.why-points span {
+    font-family: 'Lora', serif;
+
+    font-size: 13px;
+    line-height: 1.5;
+
+    color: #4e5a51;
+}
+
+.dark-card .why-points span {
+    color: #d8ccb5;
+}
+
+
+/* FINAL CTA */
+
+.about-final {
+    min-height: 300px;
+    background: rgb(1, 30, 1);
+    width:500px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 90px;
+    margin-top: 100px;
+    margin-left: 25%;
+    border-radius: 100px 100px 100px 100px;
+    border: 1px solid goldenrod;
+}
+
+.about-final > span {
+    color: goldenrod;
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.about-final h2 {
+    font-family: 'Marcellus', serif;
+    color: ivory;
+    font-size: 58px;
+    font-weight: normal;
+    line-height: 1.1;
+    margin-bottom: 22px;
+}
+
+.about-final p {
+    font-family: 'Lora', serif;
+    color: #d8ccb5;
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: 480px;
+    margin-top:30px;
+    margin-bottom: 40px;
+    margin: 30px auto 40px;
+    text-align: center;
+}
+
+.about-final a {
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+    padding: 14px 25px;
+    background: rgb(1,17,1);
+    color: goldenrod;
+    border: 1px solid goldenrod;
+    text-decoration: none;
+    font-size: 10px;
+    letter-spacing: 2px;
+    transition: 0.3s ease;
+}
+
+.about-final a:hover {
+    background: goldenrod;
+    color:ivory;
+}
+

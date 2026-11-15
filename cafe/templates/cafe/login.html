@@ -1,0 +1,92 @@
+{% extends 'cafe/base.html' %}
+
+{% load static %}
+
+{% block title %}
+login - Tadka_tales
+{% endblock %}
+
+{% block extra_css %}
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+<link rel="stylesheet" href="{% static 'css/footer.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+<section class="login-page">
+
+    <div class="login-wrapper">
+
+        <div class="login-intro">
+
+            <span class="login-label">
+                WELCOME BACK
+            </span>
+
+            <h2>
+                YOUR TABLE<br>
+                <span>AWAITS.</span>
+            </h2>
+
+            <div class="login-divider"></div>
+
+            <p>
+                Continue your journey through India's flavours,
+                stories and traditions.
+            </p>
+
+            <span class="login-tagline">
+                HAR BITE MEIN KAHANI
+            </span>
+
+        </div>
+
+
+        <div class="login-box">
+
+            <h1>Welcome Back</h1>
+
+            <p class="login-subtitle">
+                Sign in to continue your Tadka Tales journey.
+            </p>
+
+            <form method="POST" class="login-form">
+
+                {% csrf_token %}
+
+                <input
+                    type="text"
+                    name="username"
+                    placeholder="Username"
+                >
+
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                >
+
+                <button type="submit">
+                    LOGIN
+                </button>
+
+                {% if error %}
+                    <p class="error-message">{{ error }}</p>
+                {% endif %}
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
+

@@ -1,0 +1,305 @@
+{% extends 'cafe/base.html' %}
+{% load static %}
+
+{% block title %}
+menu - Tadka_tales
+{% endblock %}
+
+{% block extra_css %}
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+ <link rel="stylesheet" href="{% static 'css/menu.css' %}">
+ <link rel="stylesheet" href="{% static 'css/base.css' %}">
+ <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<main class="culture-section">
+    <div class="lantern">
+        <img src="{% static 'images/lantern.png' %}" alt="lantern">
+    </div>
+    
+    <!-- LEFT CONTENT -->
+    <div class="culture-intro">
+
+        <p class="section-tag">
+            A JOURNEY THROUGH FLAVOURS
+        </p>
+
+        <h1>
+            MANY CULTURES.<br>
+            <span>ONE THALI.</span>
+        </h1>
+
+        <p class="intro-text">
+            From royal feasts of the North to the coastal spices of the
+            South, every region brings its own story to the table.
+        </p>
+
+        <a href="{% url 'all_dishes' %}" class="explore-btn">
+            EXPLORE ALL DISHES
+            <span>↓</span>
+        </a>
+
+    </div>
+
+
+    <!-- CENTER THALI -->
+<div class="thali-area">
+
+        <!-- Decorative orbit -->
+        <div class="orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+
+        <!-- Main Thali -->
+        <div class="thali-wrapper">
+
+            <img 
+                src="{% static 'images/thali.png' %}"
+                alt="Traditional Indian Thali"
+                class="main-thali"
+            >
+
+        </div>
+
+<div class="culture-card north-card" data-region="north">
+
+    <img
+        src="{% static 'images/north icon.png' %}"
+        alt="North India"
+        class="region-icon"
+    >
+
+    <div class="card-content">
+
+        <span class="culture-title">NORTH</span>
+
+        <p>
+            Deep, layered flavors that satisfy
+        </p>
+
+        <button class="dive-btn">
+            DIVE DEEP IN
+            <span>→</span>
+        </button>
+
+    </div>
+
+</div>
+
+<div class="culture-card west-card" data-region="west">
+
+    <div class="card-glow"></div>
+
+    <img
+        src="{% static 'images/west icon.png' %}"
+        alt="West India"
+        class="region-icon"
+    >
+
+    <div class="card-content">
+
+        <span class="culture-title">WEST</span>
+
+        <p>
+            Where tradition meets modern flavor.
+        </p>
+
+        <button class="dive-btn">
+            DIVE DEEP IN
+            <span>→</span>
+        </button>
+
+    </div>
+
+</div>
+
+<div class="culture-card east-card" data-region="east">
+
+    <div class="card-glow"></div>
+
+    <img
+        src="{% static 'images/east icon.png' %}"
+        alt="East India"
+        class="region-icon"
+    >
+
+    <div class="card-content">
+
+        <span class="culture-title">EAST</span>
+
+        <p>
+            Balance, harmony, and unforgettable flavor.
+        </p>
+
+        <button class="dive-btn">
+            DIVE DEEP IN
+            <span>→</span>
+        </button>
+
+    </div>
+
+</div>
+
+<div class="culture-card south-card" data-region="south">
+
+    <div class="card-glow"></div>
+
+    <img
+        src="{% static 'images/south icon.png' %}"
+        alt="South India"
+        class="region-icon"
+    >
+
+    <div class="card-content">
+
+        <span class="culture-title">SOUTH</span>
+
+        <p>
+            Experience the ultimate comfort food.
+        </p>
+
+        <button class="dive-btn">
+            DIVE DEEP IN
+            <span>→</span>
+        </button>
+
+    </div>
+
+</div>
+ 
+</div>
+<!-- =========================
+     JOURNEY FLOW
+========================= -->
+
+<section class="journey-flow">
+
+    <div class="journey-line"></div>
+    
+    <div class="journey-items">
+
+        <!-- HOME -->
+        <a href="{% url 'home' %}" class="journey-item">
+
+            <div class="journey-icon">
+                ⌂
+            </div>
+
+            <span class="journey-name">HOME</span>
+
+            <small>
+                Welcome &<br>
+                Introduction
+            </small>
+
+        </a>
+
+
+        <div class="journey-arrow">→</div>
+
+
+        <!-- TASTE OF INDIA -->
+        <a href="{% url 'menu' %}" class="journey-item">
+
+            <div class="journey-icon">
+                ▥
+            </div>
+
+            <span class="journey-name">MENU</span>
+
+            <small>
+                Explore 4 Regions
+            </small>
+
+        </a>
+
+
+        <div class="journey-arrow">→</div>
+
+
+        <!-- REGION -->
+        <a href="{% url 'region' %}" class="journey-item">
+
+            <div class="journey-icon">
+                ◈
+            </div>
+
+            <span class="journey-name">REGION</span>
+
+            <small>
+                Culture, People &<br>
+                Signature Dishes
+            </small>
+
+        </a>
+
+        <div class="journey-arrow">→</div>
+
+    
+        <!-- ABOUT -->
+        <a href="{% url 'about' %}" class="journey-item">
+
+            <div class="journey-icon">
+                ♧
+            </div>
+
+            <span class="journey-name">ABOUT</span>
+
+            <small>
+                Our Mission &<br>
+                Our People
+            </small>
+
+        </a>
+
+
+        <div class="journey-arrow">→</div>
+
+
+        <!-- CONTACT -->
+        <a href="{% url 'contact' %}" class="journey-item">
+
+            <div class="journey-icon">
+                ✉
+            </div>
+
+            <span class="journey-name">CONTACT</span>
+
+            <small>
+                Connect With<br>
+                Us
+            </small>
+
+        </a>
+
+    </div>
+
+</section>
+
+</main>
+
+{% endblock %}
+
+
+{% block extra_js %}
+ <script>
+document.querySelectorAll(".dive-btn").forEach(button => {
+
+    button.addEventListener("click", function(e) {
+
+        e.stopPropagation();
+
+        const card = this.closest(".culture-card");
+
+        const region = card.dataset.region;
+
+        window.location.href = `/region/#${region}`;
+
+    });
+
+});
+{% endblock %}

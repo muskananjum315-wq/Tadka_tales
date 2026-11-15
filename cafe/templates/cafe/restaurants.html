@@ -1,0 +1,99 @@
+{% extends 'cafe/base.html' %}
+{% load static %}
+
+{% block title %}Partner Restaurants - Tadka Tales{% endblock %}
+
+{% block extra_css %}
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{% static 'css/restaurants.css' %}">
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+<link rel="stylesheet" href="{% static 'css/footer.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="restaurants-page">
+
+    <div class="restaurants-header">
+        <span class="restaurants-label">OUR PARTNER NETWORK</span>
+        <h1>EXPLORE RESTAURANT</h1>
+        <div class="restaurants-divider"></div>
+    </div>
+
+    <div class="restaurant-grid">
+
+        {% for restaurant in restaurants %}
+
+        <article class="restaurant-card">
+
+            <!-- RESTAURANT IMAGE -->
+                <div class="restaurant-image">
+                {% if restaurant.image %}
+                   <img src="{{ restaurant.image.url }}" alt="{{ restaurant.name }}">
+                {% endif %}
+                </div>
+
+            <!-- RESTAURANT DETAILS -->
+            <div class="restaurant-card-content-wrap">
+
+                <div class="restaurant-card-top">
+                    <span class="restaurant-region">
+                        {{ restaurant.region }}
+                    </span>
+
+                    <span class="restaurant-rating">
+                        ★ {{ restaurant.rating }}
+                    </span>
+                </div>
+
+                <div class="restaurant-card-content">
+                    <h2>{{ restaurant.name }}</h2>
+
+                    <p class="restaurant-location">
+                        {{ restaurant.location }}
+                    </p>
+
+                    <p class="restaurant-description">
+                        {{ restaurant.description }}
+                    </p>
+                </div>
+
+                <div class="restaurant-info">
+                    <div>
+                        <span>ADDRESS</span>
+                        <p>{{ restaurant.address }}</p>
+                    </div>
+
+                    <div>
+                        <span>OPENING HOURS</span>
+                        <p>{{ restaurant.opening_time }} — {{ restaurant.closing_time }}</p>
+                    </div>
+                </div>
+                
+                <div class="restaurant-contact">
+                      <a href="{% url 'restaurant_detail' restaurant.id %}">VIEW RESTAURANT</a>
+                      <a href="tel:{{ restaurant.phone }}">CALL RESTAURANT</a>
+                      <a href="mailto:{{ restaurant.email }}">EMAIL</a>
+                </div>
+              
+            </div>
+
+        </article>
+
+        {% empty %}
+
+        <div class="no-restaurants">
+            <h2>No partner restaurants found.</h2>
+            <p>Please explore another region.</p>
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}

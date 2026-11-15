@@ -1,0 +1,24 @@
+{% extends "admin/base_site.html" %}
+
+{% block content %}
+<div style="text-align: center; padding: 40px;">
+
+    <h1>You have been logged out!</h1>
+    <p>Thank you for visiting Tadka Tales Admin.</p>
+
+    <a href="/"
+       style="display: inline-block; padding: 12px 24px;
+       margin: 10px; background: #011e01; color: white;
+       text-decoration: none; border: 1px solid goldenrod;">
+        Back to Home Page
+    </a>
+
+    <a href="{% url 'admin:login' %}"
+       style="display: inline-block; padding: 12px 24px;
+       margin: 10px; background: goldenrod; color: black;
+       text-decoration: none;">
+        Login Again
+    </a>
+
+</div>
+{% endblock %}

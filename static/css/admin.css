@@ -1,0 +1,339 @@
+
+/* ========================================
+   TADKA TALES — PREMIUM ADMIN THEME
+   ======================================== */
+
+:root {
+    --dark: rgb(1, 17, 1);
+    --green: rgb(1, 30, 1);
+    --ivory: ivory;
+    --gold: #8f6b0b;
+}
+
+/* Overall page */
+html,
+body,
+#container {
+    background: var(--dark) !important;
+    color: var(--ivory) !important;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+a:link,
+a:visited {
+    color: var(--ivory);
+}
+
+a:hover {
+    color: var(--gold) !important;
+}
+
+/* Header */
+#header {
+    background: var(--green) !important;
+    color: var(--ivory) !important;
+    border-bottom: 1px solid var(--gold);
+    padding: 16px 24px;
+}
+
+#header a:link,
+#header a:visited {
+    color: var(--ivory) !important;
+}
+
+#header a:hover {
+    color: var(--gold) !important;
+}
+
+/* Brand name */
+#site-name {
+    font-family: Georgia, serif;
+    font-size: 27px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin: 0;
+}
+
+#site-name a {
+    color: var(--gold) !important;
+    text-decoration: none;
+}
+
+.admin-subtitle {
+    color: var(--ivory);
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin: 5px 0 0;
+}
+
+/* Main content */
+#content,
+#content-main,
+#content-related {
+    background: var(--dark) !important;
+    color: var(--ivory) !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+label {
+    color: var(--ivory);
+}
+
+#content h1 {
+    font-family: Georgia, serif;
+    font-size: 27px;
+    font-weight: normal;
+    margin-bottom: 28px;
+}
+
+/* Sidebar */
+#nav-sidebar {
+    background: var(--green) !important;
+    border-right: 1px solid var(--gold);
+}
+
+#nav-sidebar,
+#nav-sidebar table,
+#nav-sidebar tr,
+#nav-sidebar th,
+#nav-sidebar td {
+    background-color: var(--green) !important;
+    color: var(--ivory) !important;
+    border-color: rgba(218, 165, 32, 0.25) !important;
+}
+
+#nav-sidebar a {
+    color: var(--gold) !important;
+}
+
+#nav-sidebar a:hover {
+    color: var(--gold) !important;
+}
+
+#nav-sidebar .current-model {
+    background: var(--dark) !important;
+}
+
+/* Breadcrumbs */
+div.breadcrumbs {
+    background: var(--green) !important;
+    color: var(--ivory) !important;
+    border-bottom: 1px solid rgba(218, 165, 32, 0.3);
+}
+
+div.breadcrumbs a {
+    color: var(--gold) !important;
+}
+
+/* Dashboard modules */
+.module,
+.module table,
+.module tbody,
+.module tr,
+.module td {
+    background: var(--green) !important;
+    color: var(--ivory) !important;
+}
+
+.module h2,
+.module caption,
+.inline-group h2 {
+    background: var(--green) !important;
+    color: var(--gold) !important;
+    border-bottom: 1px solid rgba(218, 165, 32, 0.4);
+    padding: 12px 15px;
+}
+
+/* Search toolbar and action bar */
+#toolbar,
+.actions {
+    background: var(--green) !important;
+    color: var(--ivory) !important;
+    border: 1px solid rgba(218, 165, 32, 0.25);
+    padding: 12px;
+}
+
+/* Tables */
+#changelist,
+#changelist-form,
+#changelist .results,
+#result_list {
+    background: var(--dark) !important;
+    color: var(--ivory) !important;
+}
+
+#result_list {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#result_list thead th {
+    background: var(--green) !important;
+    color: var(--gold) !important;
+    border-bottom: 1px solid var(--gold);
+    padding: 13px 12px;
+}
+
+#result_list tbody tr,
+#result_list tbody tr:nth-child(even) {
+    background: var(--dark) !important;
+}
+
+#result_list tbody tr:nth-child(odd) {
+    background: var(--green) !important;
+}
+
+#result_list tbody tr:hover {
+    background: #183018 !important;
+}
+
+#result_list td {
+    color: var(--ivory) !important;
+    border-bottom: 1px solid rgba(218, 165, 32, 0.2);
+    padding: 12px;
+}
+
+#result_list a {
+    color: var(--ivory) !important;
+}
+
+#result_list a:hover {
+    color: var(--gold) !important;
+}
+
+/* Filter panel */
+#changelist-filter {
+    background: var(--green) !important;
+    color: var(--ivory) !important;
+    border-left: 1px solid rgba(218, 165, 32, 0.3);
+}
+
+#changelist-filter h2,
+#changelist-filter h3 {
+    background: var(--green) !important;
+    color: var(--gold) !important;
+}
+
+#changelist-filter a {
+    color: var(--ivory) !important;
+}
+
+#changelist-filter a:hover,
+#changelist-filter li.selected a {
+    color: var(--gold) !important;
+}
+
+/* Buttons */
+.button,
+input[type="submit"],
+input[type="button"],
+.submit-row input,
+a.button,
+button,
+.object-tools a {
+    background: var(--gold) !important;
+    color: var(--dark) !important;
+    border: 1px solid var(--gold) !important;
+    border-radius: 6px !important;
+    padding: 8px 14px;
+    font-weight: 600;
+    box-shadow: none !important;
+    text-transform: none;
+}
+
+.button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover,
+a.button:hover,
+button:hover,
+.object-tools a:hover {
+    background: var(--ivory) !important;
+    color: var(--dark) !important;
+    border-color: var(--ivory) !important;
+}
+
+/* Form fields */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="url"],
+input[type="search"],
+textarea,
+select {
+    background: var(--ivory) !important;
+    color: var(--dark) !important;
+    border: 1px solid var(--gold) !important;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid var(--gold);
+    outline-offset: 1px;
+}
+
+/* Pagination and result count */
+.paginator,
+#changelist .paginator {
+    background: var(--green) !important;
+    color: var(--ivory) !important;
+    border-top: 1px solid rgba(218, 165, 32, 0.3);
+    padding: 12px;
+}
+
+/* Add/change forms */
+fieldset,
+.form-row,
+.submit-row,
+.inline-group {
+    background: var(--green) !important;
+    color: var(--ivory) !important;
+    border-color: rgba(218, 165, 32, 0.3) !important;
+}
+
+.help,
+.helptext,
+p.help {
+    color: var(--ivory) !important;
+    opacity: 0.8;
+}
+
+/* Login page */
+.login #container {
+    background: var(--green) !important;
+    border: 1px solid var(--gold);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.login #content {
+    background: var(--green) !important;
+    padding: 25px;
+}
+
+/* Footer */
+#footer {
+    color: var(--ivory) !important;
+}
+
+/* Selection */
+::selection {
+    background: var(--gold);
+    color: var(--dark);
+}
+
+
+
+

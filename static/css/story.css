@@ -1,0 +1,525 @@
+.story-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 120px 8%;
+    background: rgb(1, 17, 1);
+    overflow: hidden;
+    position:relative;
+    height:100vh;
+    border: solid 1px rgba(201, 155, 46, 0.35) ;
+}
+.story-text {
+    width: 40%;
+}
+
+.story-text {
+    color:goldenrod;
+    font-size: 14px;
+    margin-bottom: 5px;
+    transform: translatex(50px);
+}
+
+.story-text h2 {
+    color: ivory;
+    font-size: clamp(55px, 7vw, 100px);
+    line-height: 0.95;
+    font-family: Georgia, serif;
+    letter-spacing: 5px;
+    margin: 0 0 40px;
+    transform: translatex(-50px);
+    transform : translatey(-70px);
+ 
+}
+
+.story-text span{
+    color:goldenrod;
+}
+
+.story-label{
+    position: relative;
+    width: 420px;
+    height: 90px;
+    top:15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+     transform: translatex(-50px);
+    margin-bottom: 100px;
+}
+.story-label img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    z-index: 0;
+}
+.story-label span {
+    position: relative;
+    z-index: 1;
+
+    color: goldenrod;
+    letter-spacing: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    
+}
+
+.story-description {
+    color: ivory;
+    font-size: 20px;
+    line-height: 1.6;
+    max-width: 500px;
+    transform:translatex(-50px);
+    position:absolute;
+    top:75vh;
+}
+
+.story-image {
+
+    width: 55vw;
+    height: 10vh;
+    overflow: hidden;
+    position:absolute;
+    top:0;
+    right:0;
+    border-radius:0px 0 0 100px;
+
+}
+
+.story-image img {
+    width: 55vw;
+    height: 80vh;
+    object-fit: cover;
+    display: block;
+    border-radius:100px 0 0 100px;
+    border:1px solid goldenrod;
+   
+}
+.story-section:hover .story-image{
+    top:10vh;
+    transition: all 0.4s ease-in-out;
+    height:100vh;
+}
+
+/* =========================
+   CULTURE / THALI SECTION
+========================= */
+
+.culture-section {
+    height: 130vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 80px 6%;
+    background-color: rgb(1,17,1);
+}
+.lantern{
+    width:200px;
+    height:300px;
+    
+    position: absolute;
+    right:0;
+    top:60px;
+}
+.lantern img{
+    width:100%;
+    height:100%;
+}
+
+/* =========================
+   LEFT INTRO
+========================= */
+
+.culture-intro {
+    width: 28%;
+    position: relative;
+    z-index: 5;
+}
+
+.section-tag {
+    color: goldenrod;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-top:450px;
+}
+
+.culture-intro h1 {
+    font-family: 'Marcellus', serif;
+    font-size: clamp(45px, 5vw, 85px);
+    line-height: 1.05;
+    color:ivory;
+    position: absolute;
+    top:15vh;
+}
+
+.culture-intro h1 span {
+    color: goldenrod;
+}
+
+.intro-text {
+    font-family: 'Lora', serif;
+    color:ivory;
+    font-size: 15px;
+    line-height: 1.8;
+    max-width: 420px;
+    margin-bottom: 60vh;
+}
+
+.explore-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    position:absolute;
+    top:85vh;
+    padding: 16px 25px;
+    border: 1px solid goldenrod;
+    color: goldenrod;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    transition: 0.4s ease;
+}
+
+.explore-btn:hover {
+    background: goldenrod;
+    color: ivory;
+    transform: translateY(-4px);
+}
+
+.thali-area {
+  
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    top: 80px;
+    left:40%;
+}
+.thali-wrapper {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    left: 50%;
+    top: 53%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+.main-thali {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: contain;
+    filter:
+        drop-shadow(0 0 20px goldenrod)
+        drop-shadow(0 20px 40px rgba(0, 0, 0, 0.6));
+}
+
+.orbit-one {
+    position:absolute;
+    top:33%;
+    left:30%;
+    width: 280px;
+    height: 280px;
+    border: 2px dashed goldenrod;
+    border-radius: 50%;
+    animation: rotateOrbit 30s linear infinite;
+}
+.orbit-two {
+    position: absolute;
+    top:35%;
+    left:32%;
+    width: 250px;
+    height: 250px;
+    border: 2px dashed goldenrod;
+    border-radius: 50%;
+    animation: rotateOrbit 10s linear infinite;
+}
+
+
+
+@keyframes rotateOrbit {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* =========================
+   CARD POSITIONS
+========================= */
+
+/* NORTH */
+.north-card {
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* WEST */
+.west-card {
+    left: -70px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* EAST */
+.east-card {
+    right: -70px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* SOUTH */
+.south-card {
+    bottom:-65px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.culture-card {
+    position: absolute;
+
+    width: 250px;
+    height: 230px;
+    padding: 28px 24px;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: rgb(1,17,1);
+    color: ivory;
+    
+    z-index: 5;
+    transition: 0.4s ease;
+    cursor: pointer;
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.25);
+    border-radius: 20px 20px 20px 20px;
+    border:solid 1px  rgba(201, 155, 46, 0.35);
+     
+}
+
+.region-icon {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    filter:
+        drop-shadow(
+            0 0 10px rgba(201, 155, 46, 0.25)
+        );
+    transition:
+        transform 0.5s ease,
+        filter 0.5s ease;
+    position: relative;
+    z-index: 2;
+}
+.culture-title {
+    font-family: 'Marcellus', serif;
+    font-size: 22px;
+    letter-spacing: 1px;
+    color: #f4efe2;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 2;
+}
+.dive-btn {
+    position: relative;
+    border: none;
+    background: transparent;
+    color: #d3a63a;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    cursor: pointer;
+    padding: 12px 0;
+    z-index: 2;
+    transition: 0.4s ease;
+}
+.dive-btn::after {
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 1px;
+    background: #d3a63a;
+    bottom: 0px;
+    left: 0;
+    transition: width 0.4s ease;
+}
+.dive-btn:hover::after {
+    width: 100%;
+}
+.dive-btn span {
+    margin-left: 8px;
+
+    transition: 0.4s ease;
+}
+
+.dive-btn:hover span {
+    margin-left: 14px;
+}
+
+.culture-card:hover {
+    border-color: #e0b84d;
+
+    box-shadow:
+        0 0 35px rgba(201, 155, 46, 0.16),
+        0 25px 60px rgba(0, 0, 0, 0.5);
+}
+.culture-card:hover .card-glow {
+    opacity: 1;
+}
+
+.culture-card:hover .region-icon {
+    transform: translateY(-8px) scale(1.08);
+    filter:
+        drop-shadow(
+            0 0 18px rgba(201, 155, 46, 0.55)
+        );
+}
+
+.region-transition {
+    animation: enterRegion 0.7s ease forwards;
+}
+
+@keyframes enterRegion {
+
+    0% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.08);
+        filter: blur(8px);
+    }
+
+}
+/* =========================
+   JOURNEY FLOW
+========================= */
+
+.journey-flow {
+    width: 100vw;
+    min-height: 150px;
+    position: relative;
+    margin-bottom:-900px;
+    left:-100px;
+    padding: 30px 4% 35px;
+    text-align: center;
+    z-index:20;
+    overflow: hidden;
+    
+}
+
+/* =========================
+   ITEMS CONTAINER
+========================= */
+
+.journey-items {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
+    
+
+}
+/* =========================
+   INDIVIDUAL ITEM
+========================= */
+.journey-item {
+    width: 105px;
+    color: #f4efe2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    transition: 0.4s ease;
+}
+/* =========================
+   ICON
+========================= */
+
+.journey-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid #c99b2e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #d3a63a;
+    font-size: 18px;
+    background: rgb(1,17,1);
+    margin-bottom: 9px;
+    transition: 0.4s ease;
+    position: relative;
+    z-index: 3;
+}
+/* =========================
+   NAME
+========================= */
+.journey-name {
+    color: #d3a63a;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+}
+/* =========================
+   DESCRIPTION
+========================= */
+.journey-item small {
+    color: #bdb6a8;
+    font-family: 'Lora', serif;
+    font-size: 12px;
+    line-height: 1.4;
+}
+/* =========================
+   ARROW
+========================= */
+.journey-arrow {
+    color: #c99b2e;
+    font-size: 20px;
+    margin-top: 13px;
+    opacity: 0.8;
+}
+/* =========================
+   HOVER
+========================= */
+.journey-item:hover {
+    transform: translateY(-5px);
+
+}
+
+.journey-item:hover .journey-icon {
+    background: #c99b2e;
+    color: #001b0f;
+    box-shadow:
+        0 0 18px rgba(201, 155, 46, 0.25);
+}
+.journey-line {
+
+    position: absolute;
+
+    top: 40px;
+
+    left: 8%;
+
+    width: 84%;
+
+    height: 1px;
+
+    background: rgba(201, 155, 46, 0.35);
+
+}
+

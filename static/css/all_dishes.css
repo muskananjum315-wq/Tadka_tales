@@ -1,0 +1,310 @@
+
+* {
+    margin: 0;
+}
+
+body {
+    background: rgb(1,17,1);
+    color: #f5f0df;
+    font-family: Georgia, "Times New Roman", serif;
+   
+    height:60vh;
+}
+
+nav {
+    background-color:rgb(1,30, 1);
+    padding: 20px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:100vw;
+    z-index: 1000;
+}
+nav div{
+    position: absolute;
+    right:50px;
+}
+nav h2 {
+    color: goldenrod;
+    font-family: 'Marcellus', serif;
+    padding-left: 100px;
+}
+
+nav a {
+    color: ivory;
+    font-size:14px;
+    font-family: 'Montserrat', sans-serif;
+    margin-left:30px;
+}
+
+nav a:hover{
+    color:goldenrod;
+}
+nav img {
+    width: 80px;
+    height: auto;
+    position:absolute;
+    left: 20px ;
+}
+/* =========================
+   INTRO
+========================= */
+.dish-intro {
+    text-align: center;
+    padding: 90px 20px 55px;
+}
+
+.dish-intro p {
+    color: #d9a514;
+    letter-spacing: 7px;
+    font-size: 13px;
+    margin-bottom: 18px;
+}
+
+.gold-line {
+    width: 110px;
+    height: 1px;
+    background: #d9a514;
+    position:absolute;
+    top:110px;
+    right:46.5%;  
+}
+
+/* =========================
+   EXPLORER
+========================= */
+.dish-explorer {
+    width: 88%;
+    max-width: 1250px;
+    margin: auto;
+    margin-top:-50px;
+    padding-bottom: 10vh;
+}
+
+/* =========================
+   FILTER BUTTONS
+========================= */
+.region-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 20px;
+    margin-top:2px;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 1px solid #8f6b0b;
+    color: #c99b2e;
+    padding: 12px 28px;
+    font-family: Georgia, serif;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: #c99b2e;
+    color: #001b08;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+.search-box {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 45px;
+}
+
+.search-box input {
+    width: 420px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #8f6b0b;
+    padding: 14px 8px;
+    color: #f5f0df;
+    font-family: Georgia, serif;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-box input::placeholder {
+    color: #817b6d;
+}
+
+.search-box input:focus {
+    border-bottom-color: #d9a514;
+}
+
+
+/* ---------------- DISH GRID ---------------- */
+
+.dish-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    position: relative;
+   
+    background: #f5ead2;
+    border: 1px solid #d4af37;
+    border-radius: 18px;
+
+    overflow: hidden;
+    cursor: pointer;
+
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+/* 5 CARDS PER ROW */
+
+.dish-explorer {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 22px;
+    
+}
+
+/* Keep filters/search spanning the whole page */
+
+.region-buttons,
+.search-box {
+    grid-column: 1 / -1;
+}
+
+/* ---------------- PHOTO AREA ---------------- */
+
+.dish-image {
+    height: 155px;
+    overflow: hidden;
+}
+
+.dish-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+/* ---------------- CARD TEXT ---------------- */
+
+.dish-name {
+    padding: 15px 10px 18px;
+    text-align: center;
+}
+
+.dish-name h2 {
+    font-family: 'Marcellus', serif;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 1.25;
+    color: rgb(1,17,1);
+}
+
+.dish-name p {
+    margin-top: 8px;
+
+    color: #9b7620;
+    font-size: 9px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+/* Hide old numbering */
+
+.dish-number {
+    display: none;
+}
+
+/* ---------------- HOVER ---------------- */
+
+.dish-row:hover{
+    transform: translateY(-6px);
+    background-color: goldenrod;
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.35);
+}
+.dish-row:hover .dish-name p {
+    color:ivory;
+}
+
+/* ---------------- MOBILE ---------------- */
+
+@media (max-width: 1100px) {
+    .dish-explorer {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 850px) {
+    .dish-explorer {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 20px;
+    }
+
+    nav div {
+        gap: 12px;
+    }
+
+    nav a {
+        font-size: 9px;
+    }
+
+    .dish-intro h3 {
+        font-size: 40px;
+    }
+
+    .dish-explorer {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .dish-row::before {
+        height: 130px;
+    }
+}
+
+
+
+
+
+.favourite-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    background: rgba(1, 17, 1, 0.9);
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.favourite-btn:hover {
+    transform: scale(1.1);
+}
+
+.favourite-btn.is-favourite {
+    color: #ff4d5a;
+}
+
+
+
+

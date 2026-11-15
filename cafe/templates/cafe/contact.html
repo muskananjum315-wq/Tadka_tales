@@ -1,0 +1,255 @@
+{% extends 'cafe/base.html' %}
+
+{% load static %}
+
+{% block title %}
+contact - Tadka_tales
+{% endblock %}
+
+{% block extra_css %}
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="{% static 'css/footer.css' %}">
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+<main class="contact-page">
+
+    <!-- VERTICAL TAGLINE -->
+
+    <div class="vertical-tag">
+        <span>✦</span>
+        HAR BITE MEIN KAHANI
+        <span>✦</span>
+    </div>
+
+
+    <!-- MAIN INTRO -->
+
+    <section class="contact-intro">
+
+        <span>LET'S CONNECT</span>
+
+        <div class="intro-divider">
+            <span></span>
+            <b>✦</b>
+            <span></span>
+        </div>
+        <h1>
+    Have a question, want to partner
+    with us, or simply want to talk food?
+</h1>
+
+    </section>
+
+
+    <!-- CONTACT CONTENT -->
+
+    <section class="contact-content">
+
+
+        <!-- LEFT SIDE -->
+
+        <div class="contact-info">
+
+            <h2>GET IN TOUCH</h2>
+
+
+            <div class="info-item">
+
+                <div class="info-icon">♧</div>
+
+                <div>
+                    <strong>Customer Support</strong>
+
+                    <p>
+                        Questions about dishes, orders or your experience?
+                        We're here to help!
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="info-item">
+
+                <div class="info-icon">✉</div>
+
+                <div>
+                    <strong>Email Us</strong>
+
+                    <p>
+                        support@tadkatales.in
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="info-item">
+
+                <div class="info-icon">☎</div>
+
+                <div>
+                    <strong>Call Us</strong>
+
+                    <p>
+                        +91 6362806159                        <br>
+                        <small>(Mon – Sun, 9AM – 10PM)</small>
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="info-divider"></div>
+
+
+            <h2>PARTNER WITH TADKA TALES</h2>
+
+            <div class="partner-info">
+
+                <div class="info-icon">♢</div>
+
+                <div>
+                    <strong>Interested in partnering with us?</strong>
+
+                    <p>
+                        Let's bring your restaurant to more food lovers.
+                    </p>
+
+                    <span>partners@tadkatales.in</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CENTER CARDS -->
+
+        <div class="contact-cards">
+
+
+            <div class="contact-card">
+
+                <div class="card-icon">♧</div>
+
+                <h3>CUSTOMER</h3>
+
+                <p>
+                    Questions about dishes,
+                    <br>
+                    orders or your experience?
+                </p>
+
+                <a class="scroll-message">
+                    WE'RE HERE FOR YOU
+                    <span>→</span>
+                </a>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <div class="card-icon">⩎</div>
+
+                <h3>RESTAURANT PARTNER</h3>
+
+                <p>
+                    Interested in partnering
+                    <br>
+                    with Tadka Tales?
+                </p>
+
+                <a class="scroll-message">
+                    LET'S CONNECT
+                    <span>→</span>
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- RIGHT FORM -->
+
+        <div class="contact-form" id="message">
+
+            <h2>SEND US A MESSAGE</h2>
+
+            {% if success %}
+              <p class="success-message">{{ success }}</p>
+            {% endif %}
+
+
+            <form method="post" action="{% url 'contact' %}">
+             {% csrf_token %}
+
+                <div class="form-row">
+
+                   <input
+                      type="text"
+                      name="name"
+                      placeholder="Your Name *"
+                      required
+                    >
+
+                    <input
+                     type="email"
+                     name="email"
+                     placeholder="Your Email *"
+                     required
+                    >
+
+                </div>
+                  <select name="subject" required>
+    <option value="">Select Subject</option>
+    <option value="Customer Support">Customer Support</option>
+    <option value="Feedback">Feedback</option>
+    <option value="Restaurant Partnership">Restaurant Partnership</option>
+    <option value="Other">Other</option>
+                </select>
+
+
+                <textarea
+                    name="message"
+                    placeholder="Your Message *"
+                    required
+                ></textarea>
+
+
+                <button type="submit">
+                    SEND MESSAGE →
+                </button>
+
+        
+            </form>
+
+        </div>
+
+    </section>
+
+</main>
+{% endblock %}    
+
+{% block extra_js %}
+<script>
+const contactForm = document.querySelector(".contact-form");
+
+document.querySelectorAll(".contact-card a").forEach(button => {
+    button.addEventListener("click", function() {
+        contactForm.classList.add("active");
+    });
+});
+</script>
+{% endblock %}

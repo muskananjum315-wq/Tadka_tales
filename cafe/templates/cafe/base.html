@@ -1,0 +1,135 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Tadka Tales{% endblock %}</title>
+    {% block extra_css %}
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+        
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+   
+
+    {% endblock %}
+</head>
+<body>
+    <header>
+        <nav>
+            <h2>Har Bite Mai Kahani</h2>
+            <img src="{%static 'images/logo.png' %}" alt="tadka tales logo">
+            <div>
+                <a href="{% url 'home' %}">Home</a>
+                <a href="{% url 'menu' %}">Menu</a>
+                <a href="{% url 'region' %}">region</a>
+                <a href="{% url 'about' %}">About</a>
+                <a href="{% url 'contact' %}">Contact</a>
+
+<div class="account-menu">
+    <button class="account-btn">Account ▾</button>
+
+    <div class="account-dropdown">
+        {% if user.is_authenticated %}
+            <span>Hi, {{ user.username }}</span>
+            <a href="{% url 'my_favourites' %}">Favourites</a>
+            <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'signup' %}">Sign Up</a>
+            <a href="/admin/">ADMIN</a>
+        {% endif %}
+        {% if user.is_authenticated and user.is_staff %}
+    <a href="{% url 'admin:index' %}" class="admin-dashboard-btn">
+        dashboard
+    </a>
+{% endif %}
+        
+    </div>
+</div>
+            </div>
+        </nav>
+    </header>
+
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+
+<footer class="site-footer">
+
+        <div class="footer-main">
+
+            <div class="footer-brand">
+                <h2>Tadka Tales</h2>
+                <p>Har Bite Mein Kahani</p>
+            </div>
+
+            <div class="footer-links">
+                <h3>EXPLORE</h3>
+                <a href="{% url 'home' %}">Home</a>
+                <a href="{% url 'menu' %}">Menu</a>
+                <a href="{% url 'region' %}">Regions</a>
+                <a href="{% url 'all_dishes' %}">All Dishes</a>
+            </div>
+
+            <div class="footer-links">
+                <h3>CONNECT</h3>
+                <a href="{% url 'about' %}">About</a>
+                <a href="{% url 'contact' %}">Contact</a>
+                <a href="{% url 'restaurants' %}">Our Partners</a>
+            </div>
+
+            <div class="footer-contact">
+                <h3>GET IN TOUCH</h3>
+                <p>support@tadkatales.in</p>
+                <p>+91 6362806159</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Tadka Tales</p>
+            <span>Food stories, connected through India.</span>
+        </div>
+
+    </footer>
+
+    <script>
+const accountBtn = document.querySelector(".account-btn");
+const accountDropdown = document.querySelector(".account-dropdown");
+
+accountBtn.addEventListener("click", function(event) {
+    event.stopPropagation();
+    accountDropdown.classList.toggle("show");
+});
+
+document.addEventListener("click", function() {
+    accountDropdown.classList.remove("show");
+});
+</script>
+
+ <script>
+document.querySelectorAll(".dive-btn").forEach(button => {
+
+    button.addEventListener("click", function(e) {
+
+        e.stopPropagation();
+
+        const card = this.closest(".culture-card");
+
+        const region = card.dataset.region;
+
+        window.location.href = `/region/#${region}`;
+
+    });
+
+
+});
+</script>
+
+    {% block extra_js %}
+    {% endblock %}
+
+</body>
+</html>
